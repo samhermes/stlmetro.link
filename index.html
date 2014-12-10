@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html manifest="train-manifest.manifest">
+<head>
+	<title>St. Louis Train Schedule</title>
+	<link rel="stylesheet" href="styles.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="apple-touch-icon" href="apple-touch-icon.png">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="default">
+	<meta name="apple-mobile-web-app-title" content="MetroLink">
+	<meta name="mobile-web-app-capable" content="yes">
+	<script src="jquery-2.1.1.min.js"></script>
+</head>
+<body>
+
+	<header><img src="metrolink.svg">St. Louis MetroLink Schedule</header>
+
+	<div id="schedule">
+		<div id="station-select">
+			<h1>Select a station:</h1>
+			<ul>
+				<li id="fifthmissouri">5th &amp; Missouri</li>
+				<li id="eighthpine">8th &amp; Pine</li>
+				<li id="archlacledes">Arch-Laclede's</li>
+				<li id="belleville">Belleville</li>
+				<li id="brentwood">Brentwood</li>
+				<li id="cwe">Central West End</li>
+				<li id="civic">Civic Center</li>
+				<li id="clayton">Clayton</li>
+				<li id="college">College</li>
+				<li id="convention">Convention Center</li>
+				<li id="delmar">Delmar Loop</li>
+				<li id="eastriverfront">East Riverfront</li>
+				<li id="emerson">Emerson Park</li>
+				<li id="fairviewheights">Fairview Heights</li>
+				<li id="forestpark">Forest Park DeBaliviere</li>
+				<li id="forsyth">Forsyth</li>
+				<li id="grand">Grand</li>
+				<li id="jjkcenter">JJK Center</li>
+				<li id="terminalone">Lambert Airport Terminal # 1</li>
+				<li id="terminaltwo">Lambert Airport Terminal # 2</li>
+				<li id="maplewood">Maplewood</li>
+				<li id="memorial">Memorial Hospital</li>
+				<li id="hanley">North Hanley</li>
+				<li id="richmondheights">Richmond Heights</li>
+				<li id="rockroad">Rock Road</li>
+				<li id="shilohscott">Shiloh-Scott</li>
+				<li id="shrewsbury">Shrewsbury</li>
+				<li id="skinker">Skinker</li>
+				<li id="stadium">Stadium</li>
+				<li id="sunnen">Sunnen</li>
+				<li id="swansea">Swansea</li>
+				<li id="ucity">U City Big Bend</li>
+				<li id="umslnorth">UMSL North</li>
+				<li id="umslsouth">UMSL South</li>
+				<li id="union">Union</li>
+				<li id="washingtonpark">Washington Park</li>
+				<li id="wellston">Wellston</li>
+			</ul>
+		</div>
+		<div id="direction-select">
+			<h1>Select direction:</h1>
+			<div id="eastbound">Eastbound</div>
+			<div id="westbound">Westbound</div>
+		</div>
+		<div id="train-schedule">
+		<div id="type"></div>
+		<div id="start-over">Start Over</div>
+		<h1 id="name-direction"></h1>
+		<div id="data-output" class="group">
+			<ul>
+
+			</ul>
+		</div>
+		</div>
+	</div>
+
+<script type="text/javascript">
+	$('#direction-select').hide();
+	$('#train-schedule').hide();
+	var now = new Date();
+	var type = "";
+	var day = now.getDay();
+	if (day == 0 || day == 6) {
+	type = "weekend";
+	} else {
+	type = "weekday";
+	}
+	$("#type").text(type);
+
+	var station = "";
+	var stationname = "";
+	var direction = "";
+	var directionname = "";
+	var directionday = "";
+
+	$('#station-select ul li').click(function() {
+		station = $(this).attr("id");
+		stationname = $(this).text();
+		$('#station-select').fadeOut('fast', function() {
+			$('#direction-select').fadeIn('fast');
+		});
+	});
+	$('#direction-select div').click(function() {
+		direction = $(this).attr("id");
+		directionname = $(this).text();
+		directionday = direction + type;
+		$.getJSON( "json/" + station + ".json", function( data ) {
+			if(directionday == "eastboundweekday") {
+                $.each(data.eastboundweekday[0], function(i,v) {
+                    $('#data-output ul').append($("<li />").addClass(v).text(i));
+                });
+            }
+            else if(directionday == "eastboundweekend") {
+                $.each(data.eastboundweekend[0], function(i,v) {
+                    $('#data-output ul').append($("<li />").addClass(v).text(i));
+                });
+            }
+            else if(directionday == "westboundweekday") {
+				$.each(data.westboundweekday[0], function(i,v) {
+                    $('#data-output ul').append($("<li />").addClass(v).text(i));
+                });
+            }
+            else if(directionday == "westboundweekend") {
+            	$.each(data.westboundweekend[0], function(i,v) {
+                    $('#data-output ul').append($("<li />").addClass(v).text(i));
+                });
+            }
+		});
+		$('#name-direction').text(stationname + " " + directionname);
+		$('#direction-select').fadeOut('fast', function() {
+			$('#train-schedule').fadeIn('fast');
+		});
+	});
+	$('#start-over').click(function() {
+		$('#train-schedule').fadeOut('fast', function () {
+			$('#station-select').fadeIn('fast');
+			$('#data-output ul').empty();
+		});
+	});
+</script>
+
+</body>
+</html>
