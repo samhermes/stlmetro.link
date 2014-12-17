@@ -1,8 +1,9 @@
 CACHE MANIFEST
 
-# Cache manifest version 0.0.54
+# Cache manifest version 0.0.55
 
 CACHE:
+index.html
 styles.css
 startup.png
 jquery-2.1.1.min.js
