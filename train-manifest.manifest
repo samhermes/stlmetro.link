@@ -1,10 +1,15 @@
 CACHE MANIFEST
 
-# Cache manifest version 0.0.54
+# Cache manifest version 0.0.55
 
 CACHE:
+index.html
 styles.css
 startup.png
+metrolink.svg
+640x1096.png
+1242x2148.png
+750x1294.png
 jquery-2.1.1.min.js
 json/terminalone.json
 json/terminaltwo.json
