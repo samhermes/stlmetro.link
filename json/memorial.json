@@ -144,7 +144,7 @@
 			"11:05p": "red",
 			"11:25p": "red",
 			"11:45p": "red",
-			"12:09a": "red",
+			"12:09a": "red"
 		}
 	],
 	"westboundweekday": [
@@ -228,7 +228,7 @@
 			"11:54p": "red",
 			"12:03a": "red",
 			"12:23a": "red",
-			"12:46a": "red",
+			"12:46a": "red"
 		}
 	],
 	"westboundweekend": [

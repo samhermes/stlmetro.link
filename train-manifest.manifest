@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-# Cache manifest version 0.0.55
+# Cache manifest version 0.0.56
 
 CACHE:
 index.html
@@ -46,3 +46,4 @@ json/swansea.json
 json/belleville.json
 json/college.json
 json/shilohscott.json
+json/civic.json
