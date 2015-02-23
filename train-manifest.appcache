@@ -1,9 +1,7 @@
 CACHE MANIFEST
 
-# Cache manifest version 0.0.55
+# Cache manifest version 0.0.56
 
-CACHE:
-index.html
 styles.css
 startup.png
 metrolink.svg
