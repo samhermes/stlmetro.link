@@ -3,7 +3,7 @@
 <head>
 	<title>St. Louis Train Schedule</title>
 	<link rel="stylesheet" href="styles.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<link rel="apple-touch-icon" href="apple-touch-icon.png">
 
 	<meta name="apple-mobile-web-app-capable" content="yes">
@@ -11,11 +11,11 @@
 	<meta name="apple-mobile-web-app-title" content="MetroLink">
 	<meta name="mobile-web-app-capable" content="yes">
 
+	<link href="640x1096.png" media="(device-width: 320px)" rel="apple-touch-startup-image">
 	<link href="750x1294.png" media="(device-width: 375px)" rel="apple-touch-startup-image">
 	<link href="1242x2148.png" media="(device-width: 414px)" rel="apple-touch-startup-image">
-	<link href="startup.png" media="(device-width: 320px)" rel="apple-touch-startup-image">
 
-	<script src="jquery-2.1.1.min.js"></script>
+	<script type="application/javascript" src="fastclick.js"></script>
 </head>
 <body>
 
@@ -64,87 +64,29 @@
 				<li id="wellston">Wellston</li>
 			</ul>
 		</div>
-		<div id="direction-select">
-			<h1>Select direction:</h1>
-			<div id="eastbound">Eastbound</div>
-			<div id="westbound">Westbound</div>
-		</div>
 		<div id="train-schedule">
 		<div id="type"></div>
-		<div id="start-over">Start Over</div>
+		<div class="controls">
+			<div id="filter">Filter<img width="12" height="12" src="filter.svg"></div>
+			<div id="start-over">Start Over</div>
+		</div>
+		<div class="filter-options">
+			<p>Show:</p>
+			<form>
+				<input id="red" type="checkbox" checked><label for="red">Red Line</label> 
+				<input id="blue" type="checkbox" checked><label for="blue">Blue Line</label>
+			</form>
+		</div>
 		<h1 id="name-direction"></h1>
 		<div id="data-output" class="group">
-			<ul>
-
-			</ul>
+			<ul></ul>
 		</div>
 		</div>
 	</div>
 
-<script type="text/javascript">
-	$('#direction-select').hide();
-	$('#train-schedule').hide();
-	var now = new Date();
-	var type = "";
-	var day = now.getDay();
-	if (day == 0 || day == 6) {
-	type = "weekend";
-	} else {
-	type = "weekday";
-	}
-	$("#type").text(type);
-
-	var station = "";
-	var stationname = "";
-	var direction = "";
-	var directionname = "";
-	var directionday = "";
-
-	$('#station-select ul li').click(function() {
-		station = $(this).attr("id");
-		stationname = $(this).text();
-		$('#station-select').fadeOut('fast', function() {
-			$('#direction-select').fadeIn('fast');
-		});
-	});
-	$('#direction-select div').click(function() {
-		direction = $(this).attr("id");
-		directionname = $(this).text();
-		directionday = direction + type;
-		$.getJSON( "json/" + station + ".json", function( data ) {
-			if(directionday == "eastboundweekday") {
-                $.each(data.eastboundweekday[0], function(i,v) {
-                    $('#data-output ul').append($("<li />").addClass(v).text(i));
-                });
-            }
-            else if(directionday == "eastboundweekend") {
-                $.each(data.eastboundweekend[0], function(i,v) {
-                    $('#data-output ul').append($("<li />").addClass(v).text(i));
-                });
-            }
-            else if(directionday == "westboundweekday") {
-				$.each(data.westboundweekday[0], function(i,v) {
-                    $('#data-output ul').append($("<li />").addClass(v).text(i));
-                });
-            }
-            else if(directionday == "westboundweekend") {
-            	$.each(data.westboundweekend[0], function(i,v) {
-                    $('#data-output ul').append($("<li />").addClass(v).text(i));
-                });
-            }
-		});
-		$('#name-direction').text(stationname + " " + directionname);
-		$('#direction-select').fadeOut('fast', function() {
-			$('#train-schedule').fadeIn('fast');
-		});
-	});
-	$('#start-over').click(function() {
-		$('#train-schedule').fadeOut('fast', function () {
-			$('#station-select').fadeIn('fast');
-			$('#data-output ul').empty();
-		});
-	});
-</script>
+	<script src="jquery-2.1.1.min.js"></script>
+	<script src="jquery-ui.min.js"></script>
+	<script src="app.js"></script>
 
 </body>
 </html>

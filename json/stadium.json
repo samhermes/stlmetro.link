@@ -145,7 +145,7 @@
 			"11:59p": "blue",
 			"12:13a": "red",
 			"12:25a": "blue",
-			"12:40a": "red",
+			"12:40a": "red"
 		}
 	],
 	"eastboundweekend": [
@@ -413,7 +413,7 @@
 			"11:33p": "blue",
 			"11:45p": "red",
 			"12:10a": "blue",
-			"12:20a": "red",
+			"12:20a": "red"
 		}
 	],
 	"westboundweekend": [
