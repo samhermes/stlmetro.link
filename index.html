@@ -14,6 +14,8 @@
 	<link href="640x1096.png" media="(device-width: 320px)" rel="apple-touch-startup-image">
 	<link href="750x1294.png" media="(device-width: 375px)" rel="apple-touch-startup-image">
 	<link href="1242x2148.png" media="(device-width: 414px)" rel="apple-touch-startup-image">
+
+	<script type="application/javascript" src="fastclick.js"></script>
 </head>
 <body>
 
@@ -64,7 +66,17 @@
 		</div>
 		<div id="train-schedule">
 		<div id="type"></div>
-		<div id="start-over">Start Over</div>
+		<div class="controls">
+			<div id="filter">Filter<img width="12" height="12" src="filter.svg"></div>
+			<div id="start-over">Start Over</div>
+		</div>
+		<div class="filter-options">
+			<p>Show:</p>
+			<form>
+				<input id="red" type="checkbox" checked><label for="red">Red Line</label> 
+				<input id="blue" type="checkbox" checked><label for="blue">Blue Line</label>
+			</form>
+		</div>
 		<h1 id="name-direction"></h1>
 		<div id="data-output" class="group">
 			<ul></ul>

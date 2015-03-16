@@ -70,6 +70,9 @@ $(document).on('click', '.direction-select div', function() {
 		$('#train-schedule').fadeIn(100);
 	});
 });
+$('#filter').click(function() {
+	$('.filter-options').slideToggle(100, 'easeInOutQuint');
+});
 $('#start-over').click(function() {
 	$('.direction-select').hide();
 	$('#train-schedule').fadeOut(100, function () {

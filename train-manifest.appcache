@@ -1,12 +1,13 @@
 CACHE MANIFEST
 
-# Cache manifest version 0.0.59
+# Cache manifest version 0.0.60
 
 styles.css
 metrolink.svg
 640x1096.png
 1242x2148.png
 750x1294.png
+fastclick.js
 jquery-2.1.1.min.js
 jquery-ui.min.js
 app.js
