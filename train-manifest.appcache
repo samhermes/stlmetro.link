@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-# Cache manifest version 0.0.58
+# Cache manifest version 0.0.59
 
 styles.css
 metrolink.svg
@@ -8,6 +8,7 @@ metrolink.svg
 1242x2148.png
 750x1294.png
 jquery-2.1.1.min.js
+jquery-ui.min.js
 app.js
 json/terminalone.json
 json/terminaltwo.json

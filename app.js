@@ -1,4 +1,5 @@
-$('#direction-select').hide();
+$('#station-select ul li').after('<div class="direction-select"><div id="eastbound">Eastbound</div><div id="westbound">Westbound</div></div>');
+$('.direction-select').hide();
 $('#train-schedule').hide();
 var now = new Date();
 var type = "";
@@ -34,12 +35,11 @@ var directionday = "";
 $('#station-select ul li').click(function() {
 	station = $(this).attr("id");
 	stationname = $(this).text();
-	$('#station-select').fadeOut('fast', function() {
-		$('#direction-select').fadeIn('fast');
-	});
+	$(this).next('.direction-select').slideToggle(100, 'easeInOutQuint');
+
 });
 
-$('#direction-select div').click(function() {
+$(document).on('click', '.direction-select div', function() {
 	direction = $(this).attr("id");
 	directionname = $(this).text();
 	directionday = direction + type;
@@ -66,13 +66,14 @@ $('#direction-select div').click(function() {
         }
 	});
 	$('#name-direction').text(stationname + " " + directionname);
-	$('#direction-select').fadeOut('fast', function() {
-		$('#train-schedule').fadeIn('fast');
+	$('#station-select').fadeOut(100, function() {
+		$('#train-schedule').fadeIn(100);
 	});
 });
 $('#start-over').click(function() {
-	$('#train-schedule').fadeOut('fast', function () {
-		$('#station-select').fadeIn('fast');
+	$('.direction-select').hide();
+	$('#train-schedule').fadeOut(100, function () {
+		$('#station-select').fadeIn(100);
 		$('#data-output ul').empty();
 	});
 });

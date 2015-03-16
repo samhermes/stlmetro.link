@@ -91,7 +91,7 @@ header img {
 	font-weight: normal;
 	font-size: 1.5em;
 }
-#station-select h1, #direction-select h1 {
+#station-select h1, .direction-select h1 {
 	font-size: 1.2em;
 	font-weight: 300;
 	margin-bottom: 15px;
@@ -130,15 +130,14 @@ header img {
 	cursor: pointer;
 	border-radius: 5px;
 }
-#direction-select {
-	margin-top: 40px;
+.direction-select {
+	padding-bottom: 10px;
 }
-#direction-select div {
+.direction-select div {
 	padding: 8px 10px;
-	margin: 0 0 7px;
-	color: #2d4498;
-	background: rgba(46,95,172,0.1);
-	font-weight: bold;
+	margin: 0 0 3px 15px;
+	color: #223375;
+	font-weight: 600;
 	cursor: pointer;
 	border-radius: 5px;
 }
