@@ -1,6 +1,11 @@
+$(function() {
+    FastClick.attach(document.body);
+});
+
 $('#station-select ul li').after('<div class="direction-select"><div id="eastbound">Eastbound</div><div id="westbound">Westbound</div></div>');
 $('.direction-select').hide();
 $('#train-schedule').hide();
+$('.filter-options').hide();
 var now = new Date();
 var type = "";
 var hour = now.getHours();
@@ -72,6 +77,20 @@ $(document).on('click', '.direction-select div', function() {
 });
 $('#filter').click(function() {
 	$('.filter-options').slideToggle(100, 'easeInOutQuint');
+});
+$('#red').click(function() {
+	if(!this.checked) {
+		$('.red').hide();
+	} else {
+		$('.red').show();
+	}
+});
+$('#blue').click(function() {
+	if(!this.checked) {
+		$('.blue').hide();
+	} else {
+		$('.blue').show();
+	}
 });
 $('#start-over').click(function() {
 	$('.direction-select').hide();
