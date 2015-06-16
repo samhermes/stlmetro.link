@@ -170,6 +170,9 @@ header img {
 	border-radius: 5px;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 }
+#station-select ul li:active {
+	background: rgba(46,95,172,0.15);
+}
 .direction-select {
 	padding-bottom: 10px;
 }
@@ -179,7 +182,11 @@ header img {
 	color: #223375;
 	font-weight: bold;
 	cursor: pointer;
+	border-radius: 5px;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+.direction-select div:active {
+	background: rgba(0, 0, 0, 0.04);
 }
 h1#name-direction {
 	margin: 10px 0 0;
@@ -196,6 +203,26 @@ h1#name-direction {
 	width: 20%;
 	float: left;
 	padding-bottom: 8px;
+}
+@media screen and (min-width: 500px) {
+	#train-schedule ul li {
+		width: 16.6666666%;
+	}
+}
+@media screen and (min-width: 650px) {
+	#train-schedule ul li {
+		width: 14.2857142%;
+	}
+}
+@media screen and (min-width: 750px) {
+	#train-schedule ul li {
+		width: 12.5%;
+	}
+}
+@media screen and (min-width: 850px) {
+	#train-schedule ul li {
+		width: 11.1111111%;
+	}
 }
 .blue {
 	color: #1378D7;
