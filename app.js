@@ -72,6 +72,7 @@ $(document).on('click', '.direction-select div', function() {
 	});
 	$('#name-direction').text(stationname + " " + directionname);
 	$('#station-select').fadeOut(100, function() {
+		window.scrollTo(0,0);
 		$('#train-schedule').fadeIn(100);
 	});
 });
