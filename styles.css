@@ -168,10 +168,7 @@ header img {
 	font-weight: bold;
 	cursor: pointer;
 	border-radius: 5px;
-	-webkit-tap-highlight-color: rgba(0,0,0,0);
-}
-#station-select ul li:active {
-	background: rgba(46,95,172,0.15);
+	-webkit-tap-highlight-color: rgba(46,95,172,0.15);
 }
 .direction-select {
 	padding-bottom: 10px;
