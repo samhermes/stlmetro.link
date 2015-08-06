@@ -227,6 +227,9 @@ h1#name-direction {
 .red {
 	color: #DE342A;
 }
+.greyedout {
+	color: gainsboro;
+}
 footer {
 	color: #999;
 	background: rgba(46,95,172,0.1);
