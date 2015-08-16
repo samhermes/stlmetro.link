@@ -8,7 +8,7 @@ $('#train-schedule').hide();
 $('.filter-options').hide();
 var now = new Date();
 var type = "";
-var hour = now.getHours();
+var hour = (now.getHours()<10?'0':'') + now.getHours();
 var minutes = (now.getMinutes()<10?'0':'') + now.getMinutes()
 var milTime = hour + ":" + minutes;
 var day = now.getDay();
