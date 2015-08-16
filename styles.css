@@ -63,6 +63,11 @@ header img {
 #filter img {
 	margin-left: 3px;
 	margin-bottom: -1px;
+	transition: all .2s;
+}
+#filter.active img {
+	-webkit-transform: rotate(180deg);
+	transform: rotate(180deg);    
 }
 #start-over {
 	border: 1px solid grey;
@@ -180,10 +185,6 @@ header img {
 	font-weight: bold;
 	cursor: pointer;
 	border-radius: 5px;
-	-webkit-tap-highlight-color: rgba(0,0,0,0);
-}
-.direction-select div:active {
-	background: rgba(0, 0, 0, 0.04);
 }
 h1#name-direction {
 	margin: 10px 0 0;
@@ -227,8 +228,8 @@ h1#name-direction {
 .red {
 	color: #DE342A;
 }
-.greyedout {
-	color: gainsboro;
+.grayedout {
+	color: #aeaeae;
 }
 footer {
 	color: #999;
