@@ -9,7 +9,7 @@ $('.filter-options').hide();
 var now = new Date();
 var type = "";
 var hour = now.getHours();
-var minutes = now.getMinutes();
+var minutes = (now.getMinutes()<10?'0':'') + now.getMinutes()
 var milTime = hour + ":" + minutes;
 var day = now.getDay();
 if (day == 0) {
@@ -48,8 +48,15 @@ $('#station-select ul li').click(function() {
 
 function getStandardtime(i, v) {
 	var time = i;
-	if (time < milTime) {
-		v += " greyedout";
+	var two = "02:00";
+	if (milTime > two) {
+		if (time < milTime && time > two) {
+			v += " grayedout";
+		}
+	} else {
+		if (time < milTime || time > two) {
+			v += " grayedout";
+		}
 	}
 	var time = time.split(':');
 	var hours = Number(time[0]);
@@ -101,6 +108,7 @@ $(document).on('click', '.direction-select div', function() {
 	});
 });
 $('#filter').click(function() {
+	$('#filter').toggleClass('active');
 	$('.filter-options').slideToggle(100, 'easeInOutQuint');
 });
 $('#red').click(function() {
