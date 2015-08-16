@@ -8,7 +8,9 @@ $('#train-schedule').hide();
 $('.filter-options').hide();
 var now = new Date();
 var type = "";
-var hour = now.getHours();
+var hour = (now.getHours()<10?'0':'') + now.getHours();
+var minutes = (now.getMinutes()<10?'0':'') + now.getMinutes()
+var milTime = hour + ":" + minutes;
 var day = now.getDay();
 if (day == 0) {
 	if (hour <= 2) {
@@ -44,6 +46,35 @@ $('#station-select ul li').click(function() {
 
 });
 
+function getStandardtime(i, v) {
+	var time = i;
+	var two = "02:00";
+	if (milTime > two) {
+		if (time < milTime && time > two) {
+			v += " grayedout";
+		}
+	} else {
+		if (time < milTime || time > two) {
+			v += " grayedout";
+		}
+	}
+	var time = time.split(':');
+	var hours = Number(time[0]);
+	var minutes = Number(time[1]);
+	var timeValue = "";
+	if(hours > 12) {
+		timeValue += hours - 12;
+	} else if (hours == 00) {
+		timeValue += 12;
+	} else {
+		timeValue += hours;
+	}
+	timeValue += (minutes < 10) ? ":0" + minutes : ":" + minutes;
+	timeValue += (hours >= 12) ? "p" : "a";
+	var thingresult = "<li class='" + v + "'>" + timeValue + "</li>";
+	return thingresult;
+}
+
 $(document).on('click', '.direction-select div', function() {
 	direction = $(this).attr("id");
 	directionname = $(this).text();
@@ -51,22 +82,22 @@ $(document).on('click', '.direction-select div', function() {
 	$.getJSON( "json/" + station + ".json", function( data ) {
 		if(directionday == "eastboundweekday") {
             $.each(data.eastboundweekday[0], function(i,v) {
-                $('#data-output ul').append($("<li />").addClass(v).text(i));
+                $('#data-output ul').append(getStandardtime(i, v));
             });
         }
         else if(directionday == "eastboundweekend") {
             $.each(data.eastboundweekend[0], function(i,v) {
-                $('#data-output ul').append($("<li />").addClass(v).text(i));
+                $('#data-output ul').append(getStandardtime(i, v));
             });
         }
         else if(directionday == "westboundweekday") {
 			$.each(data.westboundweekday[0], function(i,v) {
-                $('#data-output ul').append($("<li />").addClass(v).text(i));
+                $('#data-output ul').append(getStandardtime(i, v));
             });
         }
         else if(directionday == "westboundweekend") {
         	$.each(data.westboundweekend[0], function(i,v) {
-                $('#data-output ul').append($("<li />").addClass(v).text(i));
+                $('#data-output ul').append(getStandardtime(i, v));
             });
         }
 	});
@@ -77,6 +108,7 @@ $(document).on('click', '.direction-select div', function() {
 	});
 });
 $('#filter').click(function() {
+	$('#filter').toggleClass('active');
 	$('.filter-options').slideToggle(100, 'easeInOutQuint');
 });
 $('#red').click(function() {
