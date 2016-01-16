@@ -1,4 +1,4 @@
-$('#station-select ul li').after('<div class="direction-select"><div id="eastbound">Eastbound</div><div id="westbound">Westbound</div></div>');
+$('#station-select ul li').after('<div class="direction-select"><div id="westbound">Westbound</div><div id="eastbound">Eastbound</div></div>');
 $('.direction-select').hide();
 $('#train-schedule').hide();
 $('.filter-options').hide();
