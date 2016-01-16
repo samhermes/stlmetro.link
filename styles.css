@@ -193,32 +193,62 @@ h1#name-direction {
 	border-bottom: 1px solid #ddd;
 	font-weight: 300;
 }
-#train-schedule ul {
+#quick-list {
+	border-bottom: 1px solid #ddd;
+}
+#quick-list p {
+	float: left;
+	width: 45px;
+	margin: 0;
+	text-transform: uppercase;
+	font-weight: 300;
+	text-align: right;
+	font-size: 12px;
+	line-height: 1;
+	color: #999;
+	padding: 3px 15px 0 0;
+}
+#quick-list ul {
+	list-style: none;
+	overflow-x: scroll;
+	padding: 0;
+	white-space: nowrap;
+}
+#quick-list ul::-webkit-scrollbar { 
+    display: none; 
+}
+#quick-list li {
+	width: 80px;
+	display: inline-block;
+	font-size: 22px;
+	font-weight: 300;
+}
+#data-output ul {
 	list-style: none;
 	padding: 0;
 }
-#train-schedule ul li {
+#data-output ul li {
 	width: 20%;
 	float: left;
 	padding-bottom: 8px;
 }
 @media screen and (min-width: 500px) {
-	#train-schedule ul li {
+	#data-output ul li {
 		width: 16.6666666%;
 	}
 }
 @media screen and (min-width: 650px) {
-	#train-schedule ul li {
+	#data-output ul li {
 		width: 14.2857142%;
 	}
 }
 @media screen and (min-width: 750px) {
-	#train-schedule ul li {
+	#data-output ul li {
 		width: 12.5%;
 	}
 }
 @media screen and (min-width: 850px) {
-	#train-schedule ul li {
+	#data-output ul li {
 		width: 11.1111111%;
 	}
 }
