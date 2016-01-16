@@ -1,7 +1,3 @@
-$(function() {
-    FastClick.attach(document.body);
-});
-
 $('#station-select ul li').after('<div class="direction-select"><div id="eastbound">Eastbound</div><div id="westbound">Westbound</div></div>');
 $('.direction-select').hide();
 $('#train-schedule').hide();
@@ -84,21 +80,25 @@ $(document).on('click', '.direction-select div', function() {
             $.each(data.eastboundweekday[0], function(i,v) {
                 $('#data-output ul').append(getStandardtime(i, v));
             });
+            $('#data-output ul li').not('.grayedout').slice( 0, 9 ).clone().appendTo('#quick-list ul');
         }
         else if(directionday == "eastboundweekend") {
             $.each(data.eastboundweekend[0], function(i,v) {
                 $('#data-output ul').append(getStandardtime(i, v));
             });
+            $('#data-output ul li').not('.grayedout').slice( 0, 9 ).clone().appendTo('#quick-list ul');
         }
         else if(directionday == "westboundweekday") {
 			$.each(data.westboundweekday[0], function(i,v) {
                 $('#data-output ul').append(getStandardtime(i, v));
             });
+            $('#data-output ul li').not('.grayedout').slice( 0, 9 ).clone().appendTo('#quick-list ul');
         }
         else if(directionday == "westboundweekend") {
         	$.each(data.westboundweekend[0], function(i,v) {
                 $('#data-output ul').append(getStandardtime(i, v));
             });
+            $('#data-output ul li').not('.grayedout').slice( 0, 9 ).clone().appendTo('#quick-list ul');
         }
 	});
 	$('#name-direction').text(stationname + " " + directionname);
