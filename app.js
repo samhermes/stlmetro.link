@@ -133,3 +133,34 @@ $('#start-over').click(function() {
 		$('#quick-list ul').empty();
 	});
 });
+
+
+
+var INITIAL_Y = 0; // Tracks initial Y position, needed to kill Safari bounce effect
+
+function kill_safari_bounce() {
+    $( document ).on( 'touchstart', function( e ){
+        INITIAL_Y = e.originalEvent.touches[0].clientY;
+    });
+
+    $( document ).on( 'touchmove', function( e ) {
+        // Get scrollable ancestor if one exists
+        var scrollable_ancestor = $( e.target ).closest( '.station-scroll' )[0];
+
+        // Nothing scrollable? Block move.
+        if ( !scrollable_ancestor ) {
+            e.preventDefault();
+            return;
+        }
+
+        // If here, prevent move if at scrollable boundaries.
+        var scroll_delta = INITIAL_Y - e.originalEvent.touches[0].clientY;
+        var scroll_pos = scrollable_ancestor.scrollTop;         
+        var at_bottom = (scroll_pos + $(scrollable_ancestor).height()) == scrollable_ancestor.scrollHeight;
+
+        if ( (scroll_delta < 0 && scroll_pos == 0) ||
+             (scroll_delta > 0 && at_bottom) ){
+            e.preventDefault();
+        }    
+    });
+}
