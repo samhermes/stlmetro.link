@@ -45,6 +45,7 @@ header img {
 #train-schedule {
 	overflow: scroll;
 	height: 100%;
+	-webkit-overflow-scrolling: touch;
 }
 #train-schedule::-webkit-scrollbar {
 	display: none;
@@ -167,6 +168,7 @@ header img {
 #station-select {
 	overflow: scroll;
 	height: 100%;
+	-webkit-overflow-scrolling: touch;
 }
 #station-select::-webkit-scrollbar {
 	display: none;
