@@ -130,5 +130,6 @@ $('#start-over').click(function() {
 	$('#train-schedule').fadeOut(100, function () {
 		$('#station-select').fadeIn(100);
 		$('#data-output ul').empty();
+		$('#quick-list ul').empty();
 	});
 });
