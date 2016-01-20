@@ -14,6 +14,15 @@ html, body {
  	display: table;
  	clear: both;
 }
+.app {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+}
 header {
 	position: fixed;
 	font-weight: 400;
@@ -166,11 +175,14 @@ header img {
 	font-size: 1.5em;
 }
 #station-select {
+	height: 100%;
+}
+.station-scroll {
 	overflow: scroll;
 	height: 100%;
 	-webkit-overflow-scrolling: touch;
 }
-#station-select::-webkit-scrollbar {
+.station-scroll::-webkit-scrollbar {
 	display: none;
 }
 #station-select h1, .direction-select h1 {

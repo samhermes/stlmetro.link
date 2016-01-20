@@ -16,12 +16,13 @@
 	<link href="1242x2148.png" media="(device-width: 414px)" rel="apple-touch-startup-image">
 </head>
 <body>
-
+<div class="app">
 	<header><img src="metrolink.svg">St. Louis MetroLink Schedule</header>
 
 	<div id="schedule">
 		<div id="station-select">
 			<h1>Select a station:</h1>
+			<div class="station-scroll">
 			<ul>
 				<li id="fifthmissouri">5th &amp; Missouri</li>
 				<li id="eighthpine">8th &amp; Pine</li>
@@ -61,6 +62,7 @@
 				<li id="washingtonpark">Washington Park</li>
 				<li id="wellston">Wellston</li>
 			</ul>
+			</div>
 		</div>
 		<div id="train-schedule">
 		<div class="schedule-header">
@@ -91,6 +93,6 @@
 	<script src="jquery-2.1.1.min.js"></script>
 	<script src="jquery-ui.min.js"></script>
 	<script src="app.js"></script>
-
+</div>
 </body>
 </html>
