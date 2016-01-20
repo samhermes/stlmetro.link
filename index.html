@@ -63,21 +63,23 @@
 			</ul>
 		</div>
 		<div id="train-schedule">
-		<div id="type"></div>
-		<div class="controls">
-			<div id="filter">Filter<img width="12" height="12" src="filter.svg"></div>
-			<div id="start-over">Start Over</div>
+		<div class="schedule-header">
+			<div id="type"></div>
+			<div class="controls">
+				<div id="filter">Filter<img width="12" height="12" src="filter.svg"></div>
+				<div id="start-over">Start Over</div>
+			</div>
+			<div class="filter-options">
+				<p>Show:</p>
+				<form>
+					<input id="red" type="checkbox" checked><label for="red">Red Line</label> 
+					<input id="blue" type="checkbox" checked><label for="blue">Blue Line</label>
+				</form>
+			</div>
+			<h1 id="name-direction"></h1>
 		</div>
-		<div class="filter-options">
-			<p>Show:</p>
-			<form>
-				<input id="red" type="checkbox" checked><label for="red">Red Line</label> 
-				<input id="blue" type="checkbox" checked><label for="blue">Blue Line</label>
-			</form>
-		</div>
-		<h1 id="name-direction"></h1>
 		<div id="quick-list">
-			<p>Next trains:</p>
+			<p>Next trains</p>
 			<ul></ul>
 		</div>
 		<div id="data-output" class="group">
