@@ -38,6 +38,17 @@ header img {
 	top: -1px;
 	position: relative;
 }
+#train-schedule {
+	padding-top: 70px;
+}
+.schedule-header {
+	background: #fff;
+	position: fixed;
+	top: 58px;
+	padding-top: 10px;
+	left: 15px;
+	right: 15px;
+}
 #type {
 	background: #333;
 	padding: 3px 6px;
@@ -49,6 +60,9 @@ header img {
 }
 .controls {
 	float: right;
+	position: fixed;
+	top: 70px;
+	right: 15px;
 }
 #filter {
 	display: inline-block;
@@ -70,14 +84,14 @@ header img {
 	transform: rotate(180deg);    
 }
 #start-over {
-	border: 1px solid grey;
 	text-transform: uppercase;
-	border-radius: 2px;
 	font-size: 0.7em;
 	padding: 6px 10px 5px;
 	cursor: pointer;
 	display: inline-block;
 	color: #333;
+	z-index: 2;
+	position: relative;
 	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
 	vertical-align: middle;
 	background-color: #f5f5f5;
@@ -106,10 +120,14 @@ header img {
 }
 .filter-options {
 	text-align: center;
-	margin: 18px 0;
-	padding: 5px;
+	padding: 5px 0;
 	color: #999;
 	font-weight: 300;
+	background: #fff;
+	position: fixed;
+	top: 100px;
+	left: 0;
+	right: 0;
 }
 .filter-options p {
 	display: inline-block;
@@ -211,6 +229,7 @@ h1#name-direction {
 #quick-list ul {
 	list-style: none;
 	overflow-x: scroll;
+	-webkit-overflow-scrolling: touch;
 	padding: 0;
 	white-space: nowrap;
 }
