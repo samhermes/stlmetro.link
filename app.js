@@ -157,7 +157,7 @@ $(document).on("touchstart", function(e) {
     }
 
     // Prevent if nothing is scrollable
-    if(!$scroller.length) {
+    if(!$scroller.length && !$('#filter')) {
         e.preventDefault();
     } else {
         var top = $scroller[0].scrollTop;
