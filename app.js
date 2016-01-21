@@ -134,45 +134,41 @@ $('#start-over').click(function() {
 	});
 });
 
-
-
-
-
 // Detects if element has scroll bar
-    $.fn.hasScrollBar = function() {
-        return this.get(0).scrollHeight > this.outerHeight();
+$.fn.hasScrollBar = function() {
+    return this.get(0).scrollHeight > this.outerHeight();
+}
+
+$(document).on("touchstart", function(e) {
+    var $scroller;
+    var $target = $(e.target);
+
+    // Get which element could have scroll bars
+    if($target.hasScrollBar()) {
+        $scroller = $target;
+    } else {
+        $scroller = $target
+            .parents()
+            .filter(function() {
+                return $(this).hasScrollBar();
+            })
+            .first()
+        ;
     }
 
-    $(document).on("touchstart", function(e) {
-        var $scroller;
-        var $target = $(e.target);
+    // Prevent if nothing is scrollable
+    if(!$scroller.length) {
+        e.preventDefault();
+    } else {
+        var top = $scroller[0].scrollTop;
+        var totalScroll = $scroller[0].scrollHeight;
+        var currentScroll = top + $scroller[0].offsetHeight;
 
-        // Get which element could have scroll bars
-        if($target.hasScrollBar()) {
-            $scroller = $target;
-        } else {
-            $scroller = $target
-                .parents()
-                .filter(function() {
-                    return $(this).hasScrollBar();
-                })
-                .first()
-            ;
+        // If at container edge, add a pixel to prevent outer scrolling
+        if(top === 0) {
+            $scroller[0].scrollTop = 1;
+        } else if(currentScroll === totalScroll) {
+            $scroller[0].scrollTop = top - 1;
         }
-
-        // Prevent if nothing is scrollable
-        if(!$scroller.length) {
-            e.preventDefault();
-        } else {
-            var top = $scroller[0].scrollTop;
-            var totalScroll = $scroller[0].scrollHeight;
-            var currentScroll = top + $scroller[0].offsetHeight;
-
-            // If at container edge, add a pixel to prevent outer scrolling
-            if(top === 0) {
-                $scroller[0].scrollTop = 1;
-            } else if(currentScroll === totalScroll) {
-                $scroller[0].scrollTop = top - 1;
-            }
-        }
-    });
+    }
+});

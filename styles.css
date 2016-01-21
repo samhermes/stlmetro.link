@@ -177,9 +177,8 @@ header img {
 	padding-bottom: 3px;
 	border-bottom: 1px solid #ddd;
 	color: #666;
-	padding-top: 20px;
 	position: fixed;
-	top: 50px;
+	top: 70px;
 	left: 15px;
 	right: 15px;
 	z-index: 10;
