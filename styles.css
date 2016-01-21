@@ -155,7 +155,7 @@ header img {
 	margin-right: 10px;
 }
 #schedule {
-	padding: 70px 15px 0;
+	padding: 97px 0 0;
 	height: 100%;
 	box-sizing: border-box;
 }
@@ -171,6 +171,7 @@ header img {
 .station-scroll {
 	overflow-y: scroll;
 	height: 100%;
+	padding: 10px 15px 30px;
 	-webkit-overflow-scrolling: touch;
 }
 .station-scroll::-webkit-scrollbar {
@@ -203,7 +204,7 @@ header img {
 }
 #station-select ul {
 	list-style: none;
-	margin: 40px 0 0;
+	margin: 0;
 	padding: 0 0 25px;
 }
 #station-select ul li {
