@@ -38,12 +38,10 @@ header img {
 	top: -1px;
 	position: relative;
 }
-#train-schedule {
-	padding-top: 70px;
-}
 .schedule-header {
 	background: #fff;
 	position: fixed;
+	z-index: 21;
 	top: 58px;
 	padding-top: 10px;
 	left: 15px;
@@ -145,7 +143,9 @@ header img {
 	margin-right: 10px;
 }
 #schedule {
-	padding: 70px 15px 40px;
+	padding: 58px 0 0;
+	height: 100%;
+	box-sizing: border-box;
 }
 #schedule h1 {
 	margin: 0 0 10px;
@@ -153,16 +153,19 @@ header img {
 	font-weight: normal;
 	font-size: 1.5em;
 }
-#station-select h1, .direction-select h1 {
+#station-select {
+	padding: 45px 15px 30px;
+}
+#station-select h1 {
 	font-size: 1.2em;
 	font-weight: 300;
 	margin-bottom: 15px;
 	padding-bottom: 3px;
 	border-bottom: 1px solid #ddd;
 	color: #666;
-	padding-top: 20px;
 	position: fixed;
-	top: 50px;
+	top: 58px;
+	padding-top: 10px;
 	left: 15px;
 	right: 15px;
 	z-index: 10;
@@ -180,8 +183,8 @@ header img {
 }
 #station-select ul {
 	list-style: none;
-	margin: 40px 0 0;
-	padding: 0;
+	margin: 0;
+	padding: 0 0 25px;
 }
 #station-select ul li {
 	padding: 8px 10px;
@@ -212,6 +215,8 @@ h1#name-direction {
 	font-weight: 300;
 }
 #quick-list {
+	padding: 72px 0 0;
+	margin: 0 15px;
 	border-bottom: 1px solid #ddd;
 }
 #quick-list p {
@@ -224,7 +229,7 @@ h1#name-direction {
 	font-size: 12px;
 	line-height: 1;
 	color: #999;
-	padding: 3px 15px 0 0;
+	padding: 18px 15px 0 0;
 }
 #quick-list ul {
 	list-style: none;
@@ -241,6 +246,9 @@ h1#name-direction {
 	display: inline-block;
 	font-size: 22px;
 	font-weight: 300;
+}
+#data-output {
+	padding: 0 15px 25px;
 }
 #data-output ul {
 	list-style: none;
