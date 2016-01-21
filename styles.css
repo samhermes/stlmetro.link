@@ -14,15 +14,6 @@ html, body {
  	display: table;
  	clear: both;
 }
-.app {
-	position: absolute;
-	height: 100%;
-	width: 100%;
-	left: 0;
-	top: 0;
-	right: 0;
-	bottom: 0;
-}
 header {
 	position: fixed;
 	font-weight: 400;
@@ -52,7 +43,7 @@ header img {
 	position: relative;
 }
 #train-schedule {
-	overflow: scroll;
+	overflow-y: scroll;
 	height: 100%;
 	-webkit-overflow-scrolling: touch;
 }
@@ -178,7 +169,7 @@ header img {
 	height: 100%;
 }
 .station-scroll {
-	overflow: scroll;
+	overflow-y: scroll;
 	height: 100%;
 	-webkit-overflow-scrolling: touch;
 }
