@@ -136,20 +136,15 @@ $('#start-over').click(function() {
 
 
 
-$(function(){
-    var scrollY = 0;
+$('header').addEventListener('touchmove', function( event ){ event.preventDefault() };
+$('#station-select h1').addEventListener('touchmove', function( event ){ event.preventDefault() };
 
-    $(document).on('touchstart', function( e ){
-        scrollY = e.originalEvent.touches.item(0).clientY;
-    });
+$('.station-scroll').addEventListener('touchstart', function( event ){
+    if( this.scrollTop === 0 ) {
+        this.scrollTop += 1;
+    } else if( this.scrollTop + this.offsetHeight >= this.scrollHeight ) {
+        this.scrollTop -= 1;
+    }
+}
 
-    $(document).on('touchmove', function( e ){
-        var scrollPos       = e.target.scrollTop;
-        var scrollDelta     = scrollY - e.originalEvent.touches.item(0).clientY;
-        var scrollBottom    = scrollPos + $(e.target).height();
-        scrollY             = e.originalEvent.touches.item(0).clientY;
 
-        if ( $(e.target).css( 'overflow-y' ) != 'scroll' || ( scrollDelta < 0 && scrollPos == 0 ) || ( scrollDelta > 0 && scrollBottom == e.target.scrollHeight ) ) 
-            e.preventDefault();
-    });
-});
