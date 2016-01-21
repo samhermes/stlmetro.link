@@ -45,7 +45,7 @@ header img {
 .schedule-header {
 	background: #fff;
 	position: fixed;
-	z-index: 21;
+	z-index: 99;
 	top: 58px;
 	padding-top: 10px;
 	left: 15px;
