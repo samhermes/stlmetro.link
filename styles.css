@@ -42,14 +42,6 @@ header img {
 	top: -1px;
 	position: relative;
 }
-#train-schedule {
-	overflow-y: scroll;
-	height: 100%;
-	-webkit-overflow-scrolling: touch;
-}
-#train-schedule::-webkit-scrollbar {
-	display: none;
-}
 .schedule-header {
 	background: #fff;
 	position: fixed;
@@ -165,13 +157,14 @@ header img {
 	font-weight: normal;
 	font-size: 1.5em;
 }
-#station-select {
+#station-select,
+#train-schedule {
 	height: 100%;
 }
 .station-scroll {
+	padding: 10px 15px 30px;
 	overflow-y: scroll;
 	height: 100%;
-	padding: 10px 15px 30px;
 	-webkit-overflow-scrolling: touch;
 }
 .station-scroll::-webkit-scrollbar {
@@ -235,8 +228,17 @@ h1#name-direction {
 	border-bottom: 1px solid #ddd;
 	font-weight: 300;
 }
+.schedule-scroll {
+	overflow-y: scroll;
+	height: 100%;
+	-webkit-overflow-scrolling: touch;
+}
+.schedule-scroll::-webkit-scrollbar {
+	display: none;
+}
 #quick-list {
-	padding-top: 61px;
+	padding: 36px 0 0;
+	margin: 0 15px;
 	border-bottom: 1px solid #ddd;
 }
 #quick-list p {
@@ -268,7 +270,7 @@ h1#name-direction {
 	font-weight: 300;
 }
 #data-output {
-	padding-bottom: 25px;
+	padding: 0 15px 25px;
 }
 #data-output ul {
 	list-style: none;
