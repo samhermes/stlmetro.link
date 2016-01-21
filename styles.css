@@ -213,14 +213,6 @@ h1#name-direction {
 	border-bottom: 1px solid #ddd;
 	font-weight: 300;
 }
-.schedule-scroll {
-	overflow-y: scroll;
-	height: 100%;
-	-webkit-overflow-scrolling: touch;
-}
-.schedule-scroll::-webkit-scrollbar {
-	display: none;
-}
 #quick-list {
 	padding: 36px 0 0;
 	margin: 0 15px;
